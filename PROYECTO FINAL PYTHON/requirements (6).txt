@@ -1,0 +1,29 @@
+# =============================================================================
+# Registro Pedagógico Inteligente (RPI)
+# Dependencias para ejecutar la aplicación:  streamlit run app/streamlit_app.py
+# Probado con Python 3.10 – 3.12
+#
+# Instalación:
+#   python -m venv .venv
+#   source .venv/bin/activate        (Windows:  .venv\Scripts\activate)
+#   pip install -r requirements.txt
+# =============================================================================
+
+# --- Núcleo de la aplicación -------------------------------------------------
+streamlit>=1.32,<2.0          # Interfaz del panel docente
+pandas>=2.0,<3.1              # Manejo de datos tabulares
+numpy>=1.24,<3.0              # Cálculo numérico
+scikit-learn>=1.3,<2.0        # Pipeline de preprocesamiento + clasificador
+joblib>=1.3                   # Carga del modelo serializado (.joblib)
+openpyxl>=3.1                 # Lectura del libro de registro escolar (.xlsx)
+
+# --- Gráficos ----------------------------------------------------------------
+matplotlib>=3.7               # Figuras del cuaderno mostradas en la app
+
+# --- Notas -------------------------------------------------------------------
+# 1) El cuaderno CRISP_ML_Registro_Pedagogico.ipynb necesita además Jupyter:
+#       pip install -r requirements-dev.txt
+# 2) La landing page (landing/index.html) NO requiere dependencias: es un
+#    archivo autónomo que se abre con doble clic en cualquier navegador.
+# 3) Si despliega en Streamlit Community Cloud, este archivo es suficiente;
+#    súbalo en la raíz del repositorio junto a la carpeta app/.

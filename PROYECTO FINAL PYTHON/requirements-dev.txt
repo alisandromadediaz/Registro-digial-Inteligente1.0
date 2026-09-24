@@ -1,0 +1,13 @@
+# =============================================================================
+# Dependencias adicionales para ejecutar el cuaderno CRISP-ML(Q)
+#   pip install -r requirements.txt -r requirements-dev.txt
+#   jupyter lab notebooks/CRISP_ML_Registro_Pedagogico.ipynb
+# =============================================================================
+
+-r requirements.txt
+
+jupyterlab>=4.0        # Entorno de cuadernos
+notebook>=7.0          # Interfaz clásica alternativa
+ipykernel>=6.25        # Kernel de Python para el cuaderno
+nbformat>=5.9          # Lectura/escritura del .ipynb
+nbconvert>=7.8         # Exportación a HTML/PDF del cuaderno ejecutado

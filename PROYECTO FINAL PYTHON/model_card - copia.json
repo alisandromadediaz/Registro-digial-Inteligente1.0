@@ -1,0 +1,76 @@
+{
+  "nombre": "Registro Pedagógico Inteligente — Alerta temprana de no promoción",
+  "version": "1.0.0",
+  "fecha_entrenamiento": "2026-09-19 01:37",
+  "proposito": "Estimar, al cierre del Período 2, la probabilidad de que un estudiante no alcance 70 puntos en la calificación final ordinaria de una asignatura, para activar a tiempo la Recuperación Pedagógica.",
+  "tipo_de_modelo": "Regresión Logística + calibración isotónica",
+  "hiperparametros": {
+    "modelo__C": "1.0",
+    "modelo__penalty": "l2"
+  },
+  "datos_de_entrenamiento": {
+    "origen": "Estructura real del libro 3RO_B_REGISTRO_ESCOLAR_2026_2027.xlsx (matrícula, cursos, asignaturas y reglas MINERD) con desempeño simulado",
+    "registros": 3510,
+    "estudiantes": 195,
+    "anios_escolares": [
+      "2023-2024",
+      "2024-2025",
+      "2025-2026"
+    ],
+    "tasa_de_riesgo": 0.2934472934472934
+  },
+  "variables_de_entrada": [
+    "calificacion_p1",
+    "calificacion_p2",
+    "promedio_competencias",
+    "pct_asistencia",
+    "tardanzas",
+    "ausencias_injustificadas",
+    "pct_practicas_entregadas",
+    "participacion",
+    "sobreedad_anios",
+    "recuperaciones_p1_p2",
+    "horas_estudio_semana",
+    "nivel",
+    "asignatura",
+    "apoyo_familiar",
+    "tanda"
+  ],
+  "variables_excluidas_por_etica": [
+    "nombre",
+    "sexo",
+    "nacionalidad"
+  ],
+  "umbrales": {
+    "medio": 0.22,
+    "alto": 0.36999999999999994
+  },
+  "metricas_en_prueba": {
+    "Exactitud (accuracy)": 0.9410430839002267,
+    "Precisión": 0.889273356401384,
+    "Recall (sensibilidad)": 0.927797833935018,
+    "F1": 0.9081272084805654,
+    "F2 (prioriza recall)": 0.9198282032927703,
+    "ROC-AUC": 0.9871557716979443,
+    "PR-AUC (avg precision)": 0.974541584893125
+  },
+  "metricas_umbral_optimo": {
+    "recall": 0.9458483754512635,
+    "precision": 0.8590163934426229,
+    "f1": 0.9003436426116839,
+    "f2": 0.9271054493984431,
+    "pct_alertado": 0.3458049886621315
+  },
+  "limitaciones": [
+    "Entrenado con desempeño SIMULADO: las métricas no son evidencia sobre estudiantes reales. Debe reentrenarse con las calificaciones reales antes de tomar decisiones.",
+    "No predice eventos posteriores al corte de P2 (enfermedad, migración, trabajo).",
+    "Es una herramienta de apoyo: la decisión pedagógica corresponde siempre al docente.",
+    "No debe usarse para clasificar, agrupar ni rotular estudiantes de forma permanente."
+  ],
+  "uso_previsto": "Apoyo al docente y al equipo de gestión del centro educativo.",
+  "uso_no_previsto": [
+    "Selección o rechazo de matrícula",
+    "Evaluación del desempeño docente",
+    "Cualquier decisión automática sin revisión humana"
+  ]
+}
